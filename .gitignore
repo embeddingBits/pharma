@@ -1,2 +1,6 @@
 __pycache__/
 .venv/
+.pytest_cache/
+*.pyc
+frontend_graph.html
+frontend/graph.html

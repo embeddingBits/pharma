@@ -4,3 +4,8 @@ streamlit
 pandas
 requests
 networkx
+pyvis
+reportlab
+python-multipart
+pytest
+httpx

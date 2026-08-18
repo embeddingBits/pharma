@@ -33,6 +33,13 @@ done
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_DIR="$PROJECT_DIR/.venv"
 PYTHON="$VENV_DIR/bin/python"
+DB_FILE="$PROJECT_DIR/backend/data/raw/clinical_kb.db"
+
+if [[ ! -f "$DB_FILE" ]]; then
+    echo "ERROR: Clinical knowledge base not found at $DB_FILE" >&2
+    echo "Run: $PYTHON -m app.db.bootstrap  (from $PROJECT_DIR/backend)" >&2
+    exit 1
+fi
 
 if [[ -z "$SKIP_INSTALL" ]]; then
     if [[ ! -d "$VENV_DIR" ]]; then
