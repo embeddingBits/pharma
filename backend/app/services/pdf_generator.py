@@ -6,6 +6,7 @@ import io
 
 class PDFReportService:
     @staticmethod
+    # Generates a styled clinical PDF report from the variant evidence dataframe
     def create_clinical_pdf(dataframe) -> bytes:
         buffer = io.BytesIO()
         doc = SimpleDocTemplate(buffer, pagesize=letter, rightMargin=30, leftMargin=30, topMargin=30, bottomMargin=30)

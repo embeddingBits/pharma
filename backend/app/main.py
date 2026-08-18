@@ -5,6 +5,7 @@ from app.services.graph_engine import KnowledgeGraphService
 app = FastAPI(title="PharmaGen Clinical API")
 
 @app.post("/api/v1/analyze")
+# Handles VCF upload, annotates variants with clinical evidence, and returns JSON results
 async def analyze_patient_vcf(file: UploadFile = File(...)):
     contents = await file.read()
     raw_variants = VariantAnnotationEngine.parse_vcf_stream(contents)

@@ -5,6 +5,7 @@ import os
 DB_PATH = os.path.join("backend", "data", "raw", "clinical_kb.db")
 CIVIC_URL = "https://civicdb.org/downloads/nightly/nightly-ClinicalEvidenceSummaries.tsv"
 
+# Downloads live CIViC evidence into SQLite, falling back to a curated panel if the network fails
 def init_real_civic_db():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = sqlite3.connect(DB_PATH)

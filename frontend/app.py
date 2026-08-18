@@ -13,7 +13,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="main-header">🧬 PharmaGen Precision Oncology CDSS</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header">PharmaGen Precision Oncology CDSS</div>', unsafe_allow_html=True)
 st.markdown('<div class="sub-text">Deterministic Knowledge-Graph Clinical Decision Support Engine</div>', unsafe_allow_html=True)
 
 uploaded_file = st.sidebar.file_uploader("Upload Genomics VCF Stream", type=["vcf", "txt"])
@@ -70,13 +70,13 @@ if uploaded_file:
         c4.metric("Engine Latency", "< 15ms")
 
         st.markdown("---")
-        t1, t2 = st.tabs(["📊 Actionable Treatment Matrix", "🕸️ Interactive Knowledge Graph"])
+        t1, t2 = st.tabs(["Actionable Treatment Matrix", "Interactive Knowledge Graph"])
         
         with t1:
             st.dataframe(filtered_df, use_container_width=True, height=420)
             
         with t2:
-            st.caption("Node Hierarchy: Gene (Red) ➔ Mutation (Yellow) ➔ Disease (Blue) ➔ Drug (Green)")
+            st.caption("Node Hierarchy: Gene (Red) -> Mutation (Yellow) -> Disease (Blue) -> Drug (Green)")
             
             net = Network(height="580px", width="100%", directed=True, bgcolor="#0e1117", font_color="white")
             

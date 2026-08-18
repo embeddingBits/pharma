@@ -4,6 +4,7 @@ import os
 
 class KnowledgeGraphService:
     @staticmethod
+    # Builds an interactive PyVis HTML graph from annotated clinical results
     def generate_interactive_html(annotated_results: list, output_html_path="frontend/graph.html"):
         net = Network(height="500px", width="100%", directed=True, bgcolor="#0e1117", font_color="white")
         

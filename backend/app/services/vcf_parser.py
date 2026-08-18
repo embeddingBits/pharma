@@ -5,6 +5,7 @@ DB_PATH = os.path.join("backend", "data", "raw", "clinical_kb.db")
 
 class VariantAnnotationEngine:
     @staticmethod
+    # Parses raw VCF bytes into a list of variant dicts with chrom, pos, gene, and mutation
     def parse_vcf_stream(file_bytes: bytes):
         variants = []
         for line in file_bytes.decode("utf-8", errors="ignore").splitlines():
@@ -33,6 +34,7 @@ class VariantAnnotationEngine:
         return variants
 
     @staticmethod
+    # Queries the SQLite clinical knowledge base for matching evidence by gene and mutation
     def match_clinical_evidence(gene: str, mutation: str):
         conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
